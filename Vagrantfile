@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.network :private_network,
-    :ip => "192.168.155.5",
+    :ip => "192.168.156.2",
     :libvirt__netmask => "255.255.255.0",
     :libvirt__network_name => "centos_cluster_net",
     :libvirt__dhcp_enabled => false
@@ -51,5 +51,4 @@ Vagrant.configure("2") do |config|
     libvirt.cpus = `grep -c ^processor /proc/cpuinfo`.to_i
     libvirt.volume_cache = 'unsafe'
   end
-
 end
