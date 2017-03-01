@@ -9,6 +9,8 @@ gpasswd -a vagrant docker
 
 sed -i "s/OPTIONS='--selinux-enabled/OPTIONS='--selinux-enabled --insecure-registry 172.30.0.0\/16/g" /etc/sysconfig/docker  
 sed -i "s/DOCKER_NETWORK_OPTIONS=/DOCKER_NETWORK_OPTIONS='--bip=172.16.0.1\/16'/g" /etc/sysconfig/docker-network
+ifdown eth1
+ifup eth1
 systemctl enable docker; systemctl start docker
 
 
